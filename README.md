@@ -1,4 +1,8 @@
-# Dockerfile::Parser
+Dockerfile::Parser
+==================
+
+[![Code Climate](https://codeclimate.com/github/yurinnick/ruby-dockerfile-parser/badges/gpa.svg)](https://codeclimate.com/github/yurinnick/ruby-dockerfile-parser)
+
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dockerfile_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
 
