@@ -2,8 +2,6 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dockerfile_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +20,59 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+example.rb
+
+```ruby
+
+require 'dockerfile_parser'
+
+puts DockerfileParser.load('Dockerfile')
+```
+
+Dockerfile
+
+```Dockerfile
+
+FROM debian:jessie
+MAINTAINER Nikolay Yurin <yurinnick@outlook.com>
+
+RUN apt-get update && \
+    apt-get install -y nginx
+
+RUN rm -rf /var/lib/apt/lists/* && \
+    chown -R www-data:www-data /var/lib/nginx
+
+VOLUME /var/www/html
+WORKDIR /etc/nginx
+COPY site-example.conf /etc/nginx/sites-available/site-example.conf
+COPY index.html.tmpl /var/www/html/index.html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+output
+
+```ruby
+[
+    {:command=>"FROM",       :params=>["debian", "jessie"]}
+    {:command=>"MAINTAINER", :params=>"Nikolay Yurin yurinnick@outlook.com"}
+    {:command=>"RUN",        :params=>["apt-get update", 
+                                       "apt-get install -y nginx"]}
+    {:command=>"RUN",        :params=>["rm -rf /var/lib/apt/lists/*", 
+                                       "chown -R www-data:www-data /var/lib/nginx"]}
+    {:command=>"VOLUME",     :params=>"/var/www/html"}
+    {:command=>"WORKDIR",    :params=>"/etc/nginx"}
+    {:command=>"COPY",       :params=>{:src=>"site-example.conf", 
+                                       :dst=>"/etc/nginx/sites-available/site-example.conf"}}
+    {:command=>"COPY",       :params=>{:src=>"index.html", 
+                                       :dst=>"/var/www/html/index.html"}}
+    {:command=>"EXPOSE",     :params=>80}
+    {:command=>"CMD",        :params=>["nginx", "-g", "daemon off;"]}
+]
+```
+
 
 ## Development
 
