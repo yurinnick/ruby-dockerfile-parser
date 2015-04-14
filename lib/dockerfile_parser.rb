@@ -18,7 +18,7 @@ class DockerfileParser
   end
 
   def self.split_dockerfile(str)
-    str.gsub(/[\<\>\\]+/i, '').gsub("\n", ' ').squeeze(' ').split(' ')
+    str.gsub(/[\\]+/i, '').gsub("\n", ' ').squeeze(' ').split(' ')
   end
 
   def self.parse_commands(dockerfile_array)

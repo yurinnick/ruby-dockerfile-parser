@@ -60,7 +60,7 @@ output
 ```ruby
 [
     {:command=>"FROM",       :params=>["debian", "jessie"]}
-    {:command=>"MAINTAINER", :params=>"Nikolay Yurin yurinnick@outlook.com"}
+    {:command=>"MAINTAINER", :params=>"Nikolay Yurin <yurinnick@outlook.com>"}
     {:command=>"RUN",        :params=>["apt-get update", 
                                        "apt-get install -y nginx"]}
     {:command=>"RUN",        :params=>["rm -rf /var/lib/apt/lists/*", 
