@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Nikolay Yurin']
   spec.email         = ['yurinnick@outlook.com']
 
+  spec.summary       = 'Dockerfile parser'
   spec.description   = 'A Dockerfile parser written in pure Ruby'
   spec.license       = 'MIT'
   spec.require_paths = ['lib']
