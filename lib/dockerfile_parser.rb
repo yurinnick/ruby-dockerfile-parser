@@ -10,8 +10,12 @@ class DockerfileParser
 
   # Parse Dockerfile from specified path
   # @return [Array<Hash>] parser Dockerfile
-  def self.load(path)
-    dockerfile_array = split_dockerfile(File.open(path).read)
+  def self.load_file(path)
+    loads(File.read(path))
+  end
+
+  def self.loads(s)
+    dockerfile_array = split_dockerfile(s)
     parse_commands(dockerfile_array).each_cons(2).map do |item|
       process_steps(dockerfile_array, item[0], item[1][:index])
     end
