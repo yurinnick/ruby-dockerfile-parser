@@ -1,7 +1,7 @@
 # coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = 'dockerfile_parser'
-  spec.version       = '0.2.0'
+  spec.version       = '0.4.0'
   spec.authors       = ['Nikolay Yurin']
   spec.email         = ['yurinnick@outlook.com']
 
